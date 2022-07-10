@@ -1,0 +1,27 @@
+[
+    {
+        "name": "ID",
+        "type": "STRING",
+        "mode": "REQUIRED"
+    },
+    {
+        "name": "AREA",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "AVAILABILITY",
+        "type": "INT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "CUSTOMERS",
+        "type": "INT64",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "TARGET",
+        "type": "INT64",
+        "mode": "NULLABLE"
+    }
+]
