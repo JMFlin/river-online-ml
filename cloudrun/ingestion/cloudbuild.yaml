@@ -1,0 +1,17 @@
+steps:
+
+  # View files
+  - name: 'bash'
+    args: ['ls']
+    id: 'View files in base'
+
+  # Create image for Flask on Cloud Run
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', 
+            '-t', 'eu.gcr.io/$PROJECT_ID/river-online-ml/cloud-run/ingestion:v7',
+            '-t', 'eu.gcr.io/$PROJECT_ID/river-online-ml/cloud-run/ingestion:latest',
+            '.']
+
+timeout: 5800s
+tags: ['latest']
+images: [ 'eu.gcr.io/$PROJECT_ID/river-online-ml/cloud-run/ingestion' ]

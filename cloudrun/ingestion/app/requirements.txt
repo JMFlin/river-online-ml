@@ -1,0 +1,11 @@
+Flask
+python-dateutil
+Werkzeug
+six
+gunicorn
+requests
+pyarrow
+google-cloud
+google-cloud-bigquery
+google-cloud-core
+google-cloud-pubsub

@@ -1,0 +1,6 @@
+Flask
+gunicorn
+google-cloud-pubsub
+google-cloud-storage
+google.cloud
+river

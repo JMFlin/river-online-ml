@@ -1,0 +1,40 @@
+# openapi2-run.yaml
+swagger: '2.0'
+info:
+  title: river-online-ml-api 
+  description: River API on API Gateway with a Cloud Run backend
+  version: 1.0.0
+schemes:
+- https
+produces:
+- application/json
+x-google-backend:
+  address: https://river-online-ml-api-axswvbmypa-ew.a.run.app
+paths:
+  /predict:
+    get:
+      summary: River model predict path
+      operationId: predict
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /learn:
+    post:
+      summary: River model learn path
+      operationId: learn
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  /api/health_check:
+    get:
+      summary: Health check
+      operationId: health_check
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string

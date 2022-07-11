@@ -1,27 +1,47 @@
 [
     {
-        "name": "ID",
-        "type": "STRING",
-        "mode": "REQUIRED"
-    },
-    {
-        "name": "AREA",
+        "name": "area_name",
         "type": "STRING",
         "mode": "NULLABLE"
     },
     {
-        "name": "AVAILABILITY",
+        "name": "date",
+        "type": "DATE",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "genre_name",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "is_holiday",
+        "type": "BOOL",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "latitude",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "longitude",
+        "type": "FLOAT",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "store_id",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "y",
         "type": "INT64",
         "mode": "NULLABLE"
     },
     {
-        "name": "CUSTOMERS",
-        "type": "INT64",
-        "mode": "NULLABLE"
-    },
-    {
-        "name": "TARGET",
-        "type": "INT64",
+        "name": "pubsub_timestamp",
+        "type": "TIMESTAMP",
         "mode": "NULLABLE"
     }
 ]

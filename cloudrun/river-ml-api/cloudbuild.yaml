@@ -8,7 +8,7 @@ steps:
   # Create image for Flask on Cloud Run
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', 
-            '-t', 'eu.gcr.io/$PROJECT_ID/river-online-ml/cloud-run/model-api:v1',
+            '-t', 'eu.gcr.io/$PROJECT_ID/river-online-ml/cloud-run/model-api:v3',
             '-t', 'eu.gcr.io/$PROJECT_ID/river-online-ml/cloud-run/model-api:latest',
             '.']
 

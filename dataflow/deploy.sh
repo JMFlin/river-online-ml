@@ -1,10 +1,19 @@
-python -m apache_beam.examples.wordcount \
-    --region DATAFLOW_REGION \
-    --input gs://dataflow-samples/shakespeare/kinglear.txt \
-    --output gs://STORAGE_BUCKET/results/outputs \
+#python main.py \
+#    --streaming \
+#    --input_subscription projects/$PROJECT_ID/subscriptions/river-online-ml-subscription \
+#    --output_table $PROJECT_ID:river.river_predictions \
+#    --window_interval_sec 60
+
+python main.py \
+    --streaming \
     --runner DataflowRunner \
     --project $PROJECT_ID \
-    --temp_location gs://STORAGE_BUCKET/tmp/
+    --region europe-west1 \
+    --temp_location gs://river-online-ml-dataflow/ \
+    --job_name river-online-ml-dataflow \
+    --max_num_workers 2 \
+    --subnetwork https://www.googleapis.com/compute/v1/projects/$PROJECT_ID/regions/europe-west1/subnetworks/default \
+    --parameters \
+        --input_subscription projects/$PROJECT_ID/subscriptions/river-online-ml-subscription \
+        --output_table $PROJECT_ID:river.river_predictions
 
-# https://github.com/apache/beam/blob/master/sdks/python/apache_beam/examples/wordcount.py
-# https://cloud.google.com/dataflow/docs/quickstarts/create-pipeline-python

@@ -1,6 +1,0 @@
-Flask
-torch
-transformers
-sentencepiece
-gunicorn
-google-cloud-pubsub==2.6.0
