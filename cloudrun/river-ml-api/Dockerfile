@@ -12,7 +12,7 @@ COPY /app/*.* /app/
 
 WORKDIR /app
 
-# Install requirements
+# Install requirements.
 RUN pip install -r requirements.txt
 
 # Expose ports.

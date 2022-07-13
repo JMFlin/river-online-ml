@@ -10,6 +10,8 @@ from apache_beam.options.pipeline_options import PipelineOptions
 from apache_beam.io.gcp.internal.clients import bigquery
 import apache_beam.transforms.window as window
 
+#https://github.com/GoogleCloudPlatform/python-docs-samples/blob/main/dataflow/flex-templates/streaming_beam/streaming_beam.py
+
 SCHEMA = {
     'fields': [{
         "name": "area_name", "type": "STRING", "mode": "NULLABLE"

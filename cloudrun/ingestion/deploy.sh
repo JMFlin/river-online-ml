@@ -1,3 +1,5 @@
+PROJECT_ID=$(gcloud config list --format 'value(core.project)')
+
 gcloud builds submit --config cloudbuild.yaml --machine-type=e2-highcpu-8 .
 
 gcloud run deploy river-online-ml-ingestion \
@@ -12,4 +14,5 @@ gcloud run deploy river-online-ml-ingestion \
 	--platform managed \
 	--timeout 600 \
 	--region europe-west1 \
-	--port 5000 
+	--port 5000  \
+	--update-env-vars PROJECT_ID=$PROJECT_ID

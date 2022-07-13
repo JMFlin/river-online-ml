@@ -1,3 +1,5 @@
+PROJECT_ID=$(gcloud config list --format 'value(core.project)')
+
 gcloud iam service-accounts create cloud-run-pubsub-invoker \
      --display-name "Cloud Run Pub/Sub Invoker"
 

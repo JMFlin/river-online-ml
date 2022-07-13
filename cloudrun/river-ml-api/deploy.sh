@@ -1,3 +1,5 @@
+PROJECT_ID=$(gcloud config list --format 'value(core.project)')
+
 gcloud builds submit --config cloudbuild.yaml --machine-type=e2-highcpu-8 .
 
 gcloud run deploy river-online-ml-api \

@@ -2,6 +2,7 @@ gcloud services enable apigateway.googleapis.com
 gcloud services enable servicemanagement.googleapis.com
 gcloud services enable servicecontrol.googleapis.com
 
+PROJECT_ID=$(gcloud config list --format 'value(core.project)')
 USER_EMAIL=$(gcloud config list account --format "value(core.account)")
 
 gcloud api-gateway api-configs create river-online-ml-api-config \

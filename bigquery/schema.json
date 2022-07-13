@@ -6,7 +6,7 @@
     },
     {
         "name": "date",
-        "type": "DATE",
+        "type": "TIMESTAMP",
         "mode": "NULLABLE"
     },
     {
@@ -36,7 +36,7 @@
     },
     {
         "name": "y",
-        "type": "INT64",
+        "type": "FLOAT",
         "mode": "NULLABLE"
     },
     {

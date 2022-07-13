@@ -1,3 +1,5 @@
+PROJECT_ID=$(gcloud config list --format 'value(core.project)')
+
 #python main.py \
 #    --streaming \
 #    --input_subscription projects/$PROJECT_ID/subscriptions/river-online-ml-subscription \

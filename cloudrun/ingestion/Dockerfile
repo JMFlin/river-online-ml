@@ -5,7 +5,6 @@ FROM python:3.9-slim
 # Allow statements and log messages to immediately appear in the Cloud Run logs.
 ENV PYTHONUNBUFFERED True
 ENV PORT 8080
-ENV PROJECT_ID $PROJECT_ID
 
 # Copy application dependency manifests to the container image.
 # Copying this separately prevents re-running pip install on every code change.
