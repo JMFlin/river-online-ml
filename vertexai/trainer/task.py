@@ -19,6 +19,8 @@ MODEL_BUCKET="river-online-ml-models"
 STORAGE_CLIENT = storage.Client()
 
 # https://cloud.google.com/vertex-ai/docs/training/create-custom-job
+# https://codelabs.developers.google.com/codelabs/vertex-ai-custom-code-training#3
+# https://cloud.google.com/ai-platform/training/docs/training-scikit-learn#cloud-shell
 
 # feature selection.  The FEATURE list defines what features are needed from the training data.
 # as well as the types of those features. We will perform different feature engineering depending on the type
