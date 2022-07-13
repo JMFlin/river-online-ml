@@ -6,4 +6,6 @@ The flow is divided so that a message gets published to Pub/Sub where it is push
 
 A custom container is built with Cloud Build for the river model training and the job gets deployed on Vertex AI Custom Jobs to train an initial River model on available data. The model is then saved to Cloud Storage, where a custom container deployed to Cloud Run fetches the model for prediction and incremental learning.
 
+Currently Dataflow isn't used but could be used instead of the first Cloud Run container.
+
 ![Alt text](/docs/img/architecture.svg "GCP Architecture")
