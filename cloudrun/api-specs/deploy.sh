@@ -1,9 +1,12 @@
+# https://cloud.google.com/api-gateway/docs/get-started-cloud-run
+
 gcloud services enable apigateway.googleapis.com
 gcloud services enable servicemanagement.googleapis.com
 gcloud services enable servicecontrol.googleapis.com
 
 PROJECT_ID=$(gcloud config list --format 'value(core.project)')
 USER_EMAIL=$(gcloud config list account --format "value(core.account)")
+TOKEN=$(gcloud auth print-identity-token)
 
 gcloud api-gateway api-configs create river-online-ml-api-config \
   --api=river-online-ml-api --openapi-spec=openapi2-run.yaml \
@@ -20,14 +23,10 @@ gcloud api-gateway gateways create river-online-ml-gateway \
 gcloud api-gateway gateways describe river-online-ml-gateway \
   --location=europe-west1 --project=$PROJECT_ID
 
+gcloud run services add-iam-policy-binding river-online-ml-api \
+  --member="user:${USER_EMAIL}" \
+  --role='roles/run.invoker' \
+  --region=europe-west1
 
-# gcloud services enable manager_service_name.apigateway.$PROJECT_ID.cloud.goog
-
-
-#gcloud run services add-iam-policy-binding river-online-ml-api \
-#  --member="user:${USER_EMAIL}" \
-#  --role='roles/run.invoker' \
-#  --region=europe-west1
-
-#curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" \
-#    https://river-online-ml-api-axswvbmypa-ew.a.run.app/api/health_check
+curl -H "Authorization: Bearer $TOKEN" \
+    https://river-online-ml-api-axswvbmypa-ew.a.run.app/api/health_check
