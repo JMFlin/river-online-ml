@@ -5,8 +5,6 @@ import json
 import base64
 import datetime
 import urllib
-import google.auth.transport.requests
-import google.oauth2.id_token
 from six.moves import http_client
 from google.cloud import bigquery
 from flask import Flask, request, jsonify
@@ -20,7 +18,7 @@ logging.basicConfig(format='%(asctime)s %(levelname)-8s:%(message)s',
                     datefmt='%Y-%m-%d %H:%M:%S') 
 logger = logging.getLogger()
 
-# Set urls for make_authorized_get_request to authenticate with google-auth
+# Set urls for make_authorized_post_request to authenticate with google-auth
 ENDPOINT="https://river-online-ml-api-axswvbmypa-ew.a.run.app/predict"
 AUDIENCE="https://river-online-ml-api-axswvbmypa-ew.a.run.app"
 
@@ -36,9 +34,9 @@ BIGQUERY_CLIENT = bigquery.Client(
 app = flask.Flask(__name__)
 
 
-def make_authorized_get_request(endpoint, audience, data):
+def make_authorized_post_request(endpoint, audience, data):
     """
-    make_authorized_get_request makes a POST request to the specified HTTP endpoint
+    make_authorized_post_request makes a POST request to the specified HTTP endpoint
     by authenticating with the ID token obtained from the google-auth client library
     using the specified audience value.
     """
@@ -109,7 +107,7 @@ def index():
         return f"Bad Request: {msg}", 400
 
     # Call river ml api
-    prediction = make_authorized_get_request(
+    prediction = make_authorized_post_request(
         endpoint=ENDPOINT,
         audience=AUDIENCE,
         data=message)

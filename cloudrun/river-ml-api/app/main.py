@@ -31,9 +31,9 @@ STORAGE_CLIENT = storage.Client()
 app = flask.Flask(__name__)
 
 
-def receive_authorized_get_request(request):
+def receive_authorized_post_request(request):
     """
-    receive_authorized_get_request takes the "Authorization" header from a
+    receive_authorized_post_request takes the "Authorization" header from a
     request, decodes it using the google-auth client library, and returns
     back the email from the header to the caller.
     """
@@ -84,7 +84,7 @@ def health_check():
 def predict():
     """ Get a prediction from the river model """
     
-    if receive_authorized_get_request(request) == 400:
+    if receive_authorized_post_request(request) == 400:
         return {}, 400
 
     payload = flask.request.get_json()
@@ -97,14 +97,14 @@ def predict():
 
     pred = river_model.predict_one(features)
     logger.info(f"Predicted value is {pred}")
-    
+
     return jsonify({'prediction': pred}), 201
 
 @app.route('/learn', methods=['POST'])
 def learn():
     """ A model can be updated whenever a request arrives """
     
-    if receive_authorized_get_request(request) == 400:
+    if receive_authorized_post_request(request) == 400:
         return {}, 400
 
     payload = flask.request.get_json()

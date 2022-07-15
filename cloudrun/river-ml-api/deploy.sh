@@ -7,7 +7,7 @@ gcloud run deploy river-online-ml-api \
 	--memory 2Gi \
 	--image eu.gcr.io/$PROJECT_ID/river-online-ml/cloud-run/model-api:latest \
 	--concurrency 1 \
-	--ingress internal \
+	--ingress all \
 	--no-allow-unauthenticated \
 	--max-instances 5 \
 	--min-instances 0 \

@@ -9,3 +9,8 @@ A custom container is built with Cloud Build for the river model training and th
 Currently Dataflow isn't used but could be used instead of the first Cloud Run container.
 
 ![Alt text](/docs/img/architecture.svg "GCP Architecture")
+
+### TODO
+Add VPC connector and change ingress to internal.
+
+https://cloud.google.com/run/docs/configuring/connecting-vpc#gcloud
